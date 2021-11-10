@@ -2,14 +2,15 @@
   "name": "udagram-api",
   "version": "2.0.0",
   "description": "",
-  "main": "www/server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node ./www/server.js",
+    "start": "node server.js",
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "deploy": "npm install && npm run build && cd www && eb deploy",
+    "build": "npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -26,7 +27,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^7.9.0",
+    "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.21.4",
     "sequelize-typescript": "^0.6.9"

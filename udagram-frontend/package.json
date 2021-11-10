@@ -6,10 +6,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "ng build --prod",
+    "deploy": "npm install && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
+    "test": "ng test --watch=false",
+    "lint": "ng lint --fix",
+    "e2e": "ng e2e",
+    "prod": "cd www && serve"
   },
   "private": true,
   "dependencies": {
