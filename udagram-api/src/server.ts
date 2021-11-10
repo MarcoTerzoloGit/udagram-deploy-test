@@ -8,12 +8,23 @@ import { IndexRouter } from "./controllers/v0/index.router";
 import bodyParser from "body-parser";
 import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
 
-(async () => {
+(async () => { 
+
   dotenv.config();
 
-  await sequelize.addModels(V0_FEED_MODELS);
-  await sequelize.addModels(V0_USER_MODELS);
-  await sequelize.sync();
+  try {
+    console.log('sequelize', sequelize)
+    await sequelize.addModels(V0_FEED_MODELS);
+    console.log('1')
+    await sequelize.addModels(V0_USER_MODELS);
+    console.log('2')
+    await sequelize.sync();
+    console.log('3')
+    
+  } catch (error) {
+    console.log('error', error)
+  }
+
 
   console.log("Database Connected");
 
@@ -33,7 +44,7 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
 
   // Start the Server
   app.listen(port, () => {
-    console.log(`server running ${process.env.URL}`);
+    console.log(`server running ${process.env.URL} on port ${port}`);
     console.log(`press CTRL+C to stop server`);
   });
 })();
