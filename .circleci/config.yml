@@ -57,5 +57,7 @@ workflows:
           requires:
             - build
       - deploy:
+          context:
+            - default
           requires:
             - Trigger Deployment
