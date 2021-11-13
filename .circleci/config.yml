@@ -27,10 +27,10 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
-      - run:
-          name: Front-End Test
-          command: |
-            npm run frontend:test
+      # - run:
+      #     name: Front-End Test
+      #     command: |
+      #       npm run frontend:test
       - run:
           name: API Build
           command: |
