@@ -3,7 +3,7 @@
 
 module.exports = function (config) {
   config.set({
-    retryLimit: 6,
+    // retryLimit: 6,
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
