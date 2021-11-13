@@ -52,8 +52,8 @@ workflows:
   udagram:
     jobs:
       - build:
-        context:
-          - default
+          context:
+            - default
       - Trigger Deployment:
           filters:
             branches:
