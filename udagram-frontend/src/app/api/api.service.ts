@@ -68,7 +68,9 @@ export class ApiService {
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`))
       .url;
 
-    console.log('URL', signed_url)
+    console.log('URL', signed_url);
+    console.log('payload', payload);
+    console.log('file', file);
 
     const headers = new HttpHeaders({ 'Content-Type': file.type });
     const req = new HttpRequest('PUT', signed_url, file, {

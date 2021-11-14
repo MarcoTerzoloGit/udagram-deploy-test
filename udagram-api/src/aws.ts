@@ -3,11 +3,15 @@ import { config } from "./config/config";
 
 // const credentials = new AWS.SharedIniFileCredentials({ profile: "default" });
 
+console.log('config', config);
+
 // Configure AWS
 const credentials = new AWS.Credentials({
   accessKeyId: config.aws_access_key,
   secretAccessKey: config.aws_secret,
 });
+
+console.log('credentials', credentials)
 
 AWS.config.credentials = credentials;
 
